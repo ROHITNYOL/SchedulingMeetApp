@@ -70,7 +70,24 @@
 
 @media  screen and (max-width: 830px){
     .footer {
-        padding: 50px 5% 40px;   
+        padding: 50px 5% 40px;  
+        margin: 5%;
+        margin-top: 10%;
+        width: 90%; 
+    }
+
+    .content {
+        display: grid;
+    }
+
+}
+
+@media  screen and (max-width: 1050px){
+    .footer {
+        padding: 50px 5% 40px; 
+        margin: 5%;
+        margin-top: 10%;
+        width: 90%;  
     }
 
     .content {

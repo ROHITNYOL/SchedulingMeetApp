@@ -101,4 +101,34 @@
 }
 }
 
+@media  screen and (max-width: 1050px) {
+    .container {
+    flex-direction: column;
+    background-color: transparent;
+    padding-left: 50px;
+    padding-right: 50px;    
+}
+
+.content {
+    flex-direction: column;
+}
+
+.aboutImage { 
+    width: 900;
+    padding-left: 0px;
+    padding-right: 20px;
+    margin-right: 10px;
+}
+
+.aboutItems {
+    margin-top: 30px;
+}
+
+.aboutItem {
+    padding-left: 0;
+    padding-right: 0;
+}
+}
+
+
 

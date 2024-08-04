@@ -85,6 +85,8 @@ export const Navbar = () => {
             <a> <Link to='/Blog'>Blog</Link></a>
             </li>
             <button  onClick={logOut} className={styles.logout}><Link to='/Signup' >Logout</Link></button> 
+            <button  className={styles.logout}><Link to='/Auth' >Calendar</Link></button> 
+            <button  className={styles.logout}><Link to='/CreateEvent' >Events</Link></button> 
             </ul>
          
         

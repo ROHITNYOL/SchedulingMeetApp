@@ -1,6 +1,8 @@
 const { auth } = require("googleapis/build/src/apis/abusiveexperiencereport");
 const { google } = require("googleapis");
 const calendar = google.calendar("v3");//defininng the version of the google calendar
+const {v4 : uuidv4 } =require("uuid");
+uuidv4();
 
 // Initialize OAuth2 client
 const oauth2Client = new google.auth.OAuth2(
@@ -51,7 +53,6 @@ async function refreshTokens(tokens) {
       if (!summary || !description || !start || !end) {
         return res.status(400).json({ error: "Missing required fields" });
       }
-  
       const event = {
         summary: summary,
         description: description,
@@ -70,7 +71,23 @@ async function refreshTokens(tokens) {
       const response = await calendar.events.insert({
         auth: oauth2Client,//as the insertion or deletion needs authorisation
         calendarId: "primary",
+
+
+
+      conferenceDataVersion : 1,
+
         requestBody: event,
+
+        conferenceData : {
+            createRequest : {
+              requestId: uuidv4(),
+            }
+        },
+        attendees : [
+          {
+          email : "examplesforgeneralpurposes@gmail.com"
+        },
+      ],
       });
   
       const createdEvent = response.data;

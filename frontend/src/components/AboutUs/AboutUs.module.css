@@ -134,3 +134,40 @@
 }
 
 }
+
+
+
+@media  screen and (max-width: 1050px) {
+    .aboutUs {
+    width: 80%;
+    flex-direction: column;
+    background-color: transparent;
+    padding-left: 0;
+    padding-right: 0;    
+}
+
+.aboutUsImage { 
+    width: 900;
+    padding-left: 0px;
+    padding-right: 20px;
+    margin-right: 10px;
+}
+
+
+
+.aboutItem:hover {
+    background-size: 100% 100%;
+}
+.aboutUsRight h2 {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.aboutUsRight p {
+    font-size: 25px;
+}
+
+}
+

@@ -123,3 +123,16 @@
     }
     
 }
+
+
+@media  screen and (max-width: 1050px) {
+    .container {
+        flex-direction: column-reverse;
+        padding: 45px;
+    }
+
+    .content {
+        align-items: center;
+    }
+    
+} 

@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Pricing from "./components/menuPages/Pricing/Pricing";
 import Enterprise from "./components/menuPages/Enterprise/Enterprise";
-import Features from "./components/menuPages/Features/Features";
+
 import Blog from "./components/menuPages/Blog/Blog";
 import Platform from "./components/menuPages/Platform/Platform";
 import Docs from "./components/menuPages/Docs/Docs";
@@ -17,6 +17,7 @@ import Signup from "./components/pages/Signup";
 import "react-toastify/dist/ReactToastify.css";
 import Auth from "./components/Google/Auth";
 import CreateEvent from "./components/Google/CreateEvent";
+import Features from "./components/menuPages/Features/Features";
 
 
 

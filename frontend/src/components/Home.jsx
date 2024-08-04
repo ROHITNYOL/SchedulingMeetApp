@@ -32,10 +32,11 @@ const Home = () => {
         if (!data.status) {
           removeCookie("jwt");
           navigate("/");
-        } else
-          toast(`Hi ${data.user} 🦄`, {
-            theme: "dark",
-          });
+        }
+        //  else
+        //   toast(`Hi ${data.user} 🦄`, {
+        //     theme: "dark",
+        //   });
       }
     };
     verifyUser();

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./CreateEvent.module.css";
 
 const Googlecalendar = () => {
   const [events, setEvents] = useState([]);
@@ -9,7 +10,7 @@ const Googlecalendar = () => {
     fetchEvents(selectedTimePeriod);
     // Fetch events for the initial selected time period when component mounts
   }, [selectedTimePeriod]);
-//basically to update the events being shown whenever a new event is added 
+  //basically to update the events being shown whenever a new event is added
   useEffect(() => {
     if (refresh) {
       fetchEvents(selectedTimePeriod);
@@ -117,7 +118,7 @@ const Googlecalendar = () => {
           body: JSON.stringify(eventData),
         }
       );
-      console.log(JSON.stringify(eventData))
+      console.log(JSON.stringify(eventData));
       if (response.ok) {
         setRefresh(true); // Trigger event list refresh
       } else {
@@ -156,10 +157,10 @@ const Googlecalendar = () => {
       <div>
         {events.length > 0 ? (
           events.map((event) => (
-            <div key={event.id} className="eventFetched">
-              <p className="pHead">{event.summary}</p>
-              <p className="date">
-                <span className="dateHead">Start:</span>{" "}
+            <div key={event.id} className={styles.eventFetched}>
+            <p className={styles.pHead}>{event.summary}</p>
+            <p className={styles.date}>
+                <span className={styles.dateHead}>End:</span>{" "}
                 {new Date(event.start.dateTime).toLocaleString()}
               </p>
               <p className="date">
@@ -167,11 +168,11 @@ const Googlecalendar = () => {
                 {new Date(event.end.dateTime).toLocaleString()}
               </p>
               {event.description && (
-                <p className="description">{event.description}</p>
+               <p className={styles.description}>{event.description}</p>
               )}
               <button
                 onClick={() => handleDeleteEvent(event.id)}
-                className="deleteEvent"
+                className={styles.deleteEvent}
               >
                 Delete
               </button>
@@ -185,19 +186,21 @@ const Googlecalendar = () => {
   };
 
   return (
-    <div className="container">
-      <div className="box">
-        <div className="left">
-          <h2 className="heading">Add Event</h2>
+    <div className={styles.container1}>
+    <div className={styles.formBox}>
+      <div className={styles.left}>
+        <h2 className={styles.heading}>Create Event</h2>
           {/* Form for adding event */}
           <form
-            className="form"
+            className={styles.form}
             onSubmit={(e) => {
               e.preventDefault();
               const formData = new FormData(e.target);
               const summary = formData.get("summary");
               const description = formData.get("description");
-              const start = new Date(formData.get("startDateTime")).toISOString();
+              const start = new Date(
+                formData.get("startDateTime")
+              ).toISOString();
               const end = new Date(formData.get("endDateTime")).toISOString();
 
               handleAddEvent({
@@ -210,40 +213,40 @@ const Googlecalendar = () => {
               e.target.reset(); // Reset form fields after submission
             }}
           >
-            <input
+             <input className={styles.inputBox}
               type="text"
               name="summary"
               placeholder="Event Name"
               required
-              className="input"
+             
             />
-            <input
+             <input className={styles.inputBox}
               type="text"
               name="description"
               placeholder="Description"
-              className="input"
+       
             />
-            <input
+             <input className={styles.inputBox}
               type="datetime-local"
               name="startDateTime"
               required
-              className="input"
+             
             />
-            <input
+             <input className={styles.inputBox}
               type="datetime-local"
               name="endDateTime"
               required
-              className="input"
+              
             />
-            <button type="submit" className="button">
-              Add Event
+            <button type="submit" className={styles.button}>
+              Create Event
             </button>
           </form>
         </div>
-        <div className="right">
-          <h2 className="heading">Fetched Events</h2>
-          {/* Event filtering buttons */}
-          <div className="filterButtons">
+        <div className={styles.right}>
+          <h2 className={styles.heading}>Details of Events </h2>
+
+          <div className={styles.filterBTn}>
             <button
               className={
                 selectedTimePeriod === "today" ? "activeButton" : "button"
@@ -270,7 +273,7 @@ const Googlecalendar = () => {
             </button>
           </div>
           {/* Display fetched events */}
-          <div className="eventsContainer">
+            <div  className={styles.event}>
             {events.length > 0 ? (
               renderEvents()
             ) : (
